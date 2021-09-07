@@ -1,0 +1,79 @@
+<h1>Add page</h1>
+<div class="container">
+
+<div id="text">
+  <p style="display: inline; margin-right: 10px; ">Add new</p>
+  <div *ngFor="let option of options" style="display: inline; margin-left:10px; ">
+       <input type="radio" name="option" [value]="option" (change)="radioChange($event)" checked="checked"><i>{{option}}</i>
+  </div>
+</div>
+
+<div class="form-container border ">
+  <form class="text-center " [formGroup]="addGameForm"  *ngIf="selectedOption === 'Game'">
+
+      <input type="text"  class="form-control mb-4" placeholder="Name" formControlName="name"
+       autocomplete="off"   >
+
+      <input type="number"  class="form-control mb-4" placeholder="Price" formControlName="price"
+         autocomplete="off"  >
+         
+      <input type="text"  class="form-control mb-4" placeholder="Description" formControlName="description"
+         autocomplete="off"  >
+
+      <input type="text"  class="form-control mb-4" placeholder="MinReq" formControlName="minReq"
+         autocomplete="off"  >
+
+      <input type="text"  class="form-control mb-4" placeholder="RecReq" formControlName="recReq"
+         autocomplete="off"  >
+
+      <input type="number"  class="form-control mb-4" placeholder="DeveloperId" formControlName="developerId"
+         autocomplete="off"  >
+
+      <input type="text"  class="form-control mb-4" placeholder="CategoryId1, CategoryId2" formControlName="categoryId"
+          autocomplete="off" >
+
+      <input type="text"  class="form-control novalidate mb-4" placeholder="Img URL" formControlName="img"
+          autocomplete="off">
+  </form>
+
+  <form class="text-center  " [formGroup]="addDeveloperForm" *ngIf="selectedOption === 'Developer'">
+
+      <input type="text"  class="form-control mb-4" placeholder="Name" formControlName="name"
+            autocomplete="off" >
+
+      <input type="text"  class="form-control mb-4" placeholder="Website" formControlName="website"
+            autocomplete="off" >
+
+      <input type="text"  class="form-control mb-4" placeholder="Country" formControlName="country"
+            autocomplete="off" >
+  </form>
+
+  <form class="text-center  " [formGroup]="addBundleForm"  *ngIf="selectedOption === 'Bundle'">
+
+      <input type="text"  class="form-control mb-4" placeholder="Name" formControlName="name"
+            autocomplete="off" >
+
+       <input type="number"  class="form-control mb-4" placeholder="Price" formControlName="price"
+            autocomplete="off">
+
+      <input type="text"  class="form-control mb-4" placeholder="GameId1, GameId2" formControlName="gameId"
+             autocomplete="off" >
+
+      <input type="text"  class="form-control novalidate mb-4" placeholder="Img URL" formControlName="img"
+             autocomplete="off">
+  </form>
+
+  <form class="text-center  " [formGroup]="addCategoryForm"  *ngIf="selectedOption === 'Category'">
+
+      <input type="text"  class="form-control mb-4" placeholder="Name" formControlName="name"
+            autocomplete="off" >
+
+  </form>
+
+
+  <button mdbBtn color="danger" block="true"  type="submit" (click)="add()" [disabled]="currentFormRef.invalid" >Add</button>
+    <p *ngIf="success" style="color: green; font-size: 22px;">{{selectedOption.toUpperCase()}} added successfully</p>
+    <p *ngIf="success === false" style="color: red; font-size: 22px;">Something went wrong</p>
+</div>
+</div>
+
