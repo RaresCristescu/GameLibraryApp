@@ -1,0 +1,9 @@
+{
+    "name":"Diablo3",
+    "price":59.99,
+    "description":"Diablo III is a hack-and-slash action role-playing game developed and published by Blizzard Entertainment as the third installment in the Diablo franchise.",
+    "minreq":"Windows 7/8/10, Intel Core 2 Duo, GeForce 8800GT, 2 GB RAM",
+    "recreq":"Windows 10, Intel Core 2 Duo 2.4 GHZ, GeForce GTX260, 4 GB RAM",
+    "developerid":1,
+    "categoryid":[1, 2, 12]
+}
